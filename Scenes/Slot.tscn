@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://clc1nfgwpdwmh"]
+
+[ext_resource type="Script" path="res://Scripts/Slot.cs" id="1_qfno1"]
+[ext_resource type="Texture2D" uid="uid://bm0xu1a6tdngr" path="res://Textures/FieldTextures/warped_nylium.png" id="2_n7npp"]
+
+[node name="slot" type="ColorRect"]
+custom_minimum_size = Vector2(78, 78)
+offset_right = 78.0
+offset_bottom = 78.0
+color = Color(0.156863, 0.14902, 0.14902, 1)
+script = ExtResource("1_qfno1")
+
+[node name="Filter" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Texture" type="TextureRect" parent="Filter"]
+self_modulate = Color(1, 1, 1, 0.811765)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n7npp")
+expand_mode = 1
+
+[connection signal="gui_input" from="Filter" to="." method="_on_filter_gui_input"]

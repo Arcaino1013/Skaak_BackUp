@@ -1,0 +1,47 @@
+Bauer:
+    - Bogen
+        Erlaubt es dem Bauern 2 Felder in Laufrichtung zu schmeißen, ohne sich dabei zu bewegen
+
+    - Kompass 
+        Erhältlich bei Erreichen der gegnerischen Grundlinie
+        Ermöglicht Bewegung wie ein König
+
+    - Jäger = Bogen + Kompass
+        Ermöglicht es dem Bauern neben der neuen Bewegungsmöglichkeiten und dem Bogen auch horizontal und vertikal 2 Felder zu schmeißen, ohne sich dabei jedoch zu bewegen
+
+Springer:
+    - Leben nach dem Pferd
+        Wenn der Springer geschlagen wird bleibt ein Bauer zurück, der auf der eigenen Grundelinie frei platziert werden darf. Ist dort kein Platz wird auf die nächste Reihe ausgewichen. 
+    - Fluchtplan
+        Erlaubt es dem Springer sich nach dem Zug nochmal zu bewegen. Dabei darf er jedoch keine Figur schlagen. Der zweite Zug ist nicht verpflichtend. 
+        (1 max)
+    
+Läufer: 
+    - Exkommunikation
+        Grenzt der eigenen Läufer an einen gegnerischen kann man diesen aus der Kirche werfen und damit zu einem Bauern machen.
+        (1x --> wie beschrieben; 2x --> kann auch aus einer Dame einen Bauern)
+    - Schutzgebet
+        Kann eine Verbündete Figur für den nächsten gegnerischen Zug unschlagbar machen, jedoch nur, wenn diese sich im 1-Feldradius des Läufers befindet. Sei es vor oder nach der Bewegung des Läufers.
+    
+Turm:
+    - Leben nach den Mauern
+        Wenn der Turm geschlagen wird bleibt ein Bauer zurück, der auf der eigenen Grundelinie frei platziert werden darf. Ist dort kein Platz wird auf die nächste Reihe ausgewichen. 
+    - Umbauarbeiten
+        Macht aus dem Turm eine Mauer. Diese ist unzerstörbar und nicht beweglich. Setzt man die Fähigkeit erneut ein wird aus der Mauer wieder ein Turm. 
+
+Dame:
+    - weiblicher Charme
+        Die Dame kann feindliche Bauern die Seite wechseln lassen, sodass sie ihre Farbe ändern. Dabei müssen die direkt Figuren aneinander angrenzen (AOE: Kreuz).
+    - Enteignung
+        Die Dame kann feindliche Läufer und Springer zum gegnerischen Bauern konvertieren. Dabei müssen die direkt Figuren aneinander angrenzen (AOE: Kreuz).
+    - charmante Enteignung = weiblicher Charme + Enteignung
+        Erlaubt es der Dame aus Läufer und Springer des Gegners eigene Bauern zu machen. Dabei müssen die direkt Figuren aneinander angrenzen (AOE: Kreuz).
+
+König:
+    -Steuern:
+        Überträgt ein PowerUps einer angrenzenden eigenen Figur an sich selbst. (AOE: Radius)
+    - Opfergabe 
+        Benötigt zwei gleiche Figuren in seiner direkten Nähe, opfert eine davon und erhält dadurch deren Bewegungsmöglichkeiten zusätzlich.
+    - göttliche Opfergabe = Steuern + Opfergabe
+        Absorbiert in seinem Umkreis alle Figuren und erhält die PowerUps der eigenen Figuren und, wenn zwei gleiche Figuren vorhanden sind zusätzlich der deren Bewegungsmöglichkeiten. Dadurch erhält er zusätzlich ein Tier4-Schild wodurch er sich in ein eigentliches Schach bewegen kann. 
+

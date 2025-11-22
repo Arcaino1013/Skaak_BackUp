@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://y5a56h1iandr"]
+
+[ext_resource type="Script" path="res://Scripts/Main.cs" id="1_5kkvc"]
+[ext_resource type="Texture2D" uid="uid://ij3bw051v4o5" path="res://Textures/backgrounds/GameOverBackground.png" id="1_awy4m"]
+[ext_resource type="FontFile" uid="uid://dda5nre8nehrh" path="res://Minecraft.ttf" id="2_qa8cf"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -20.0
+offset_right = 65.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 20.0
+offset_right = 2017.0
+offset_bottom = 1183.0
+texture = ExtResource("1_awy4m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 20.0
+offset_right = -2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.486275, 0.388235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qa8cf")
+theme_override_font_sizes/font_size = 200
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+script = ExtResource("1_5kkvc")
+
+[node name="SeperatorBtn1" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenuBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_qa8cf")
+theme_override_font_sizes/font_size = 60
+text = "main menu"
+
+[node name="NewGameBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_qa8cf")
+theme_override_font_sizes/font_size = 60
+text = "new game"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MainMenuBtn" to="MarginContainer/HBoxContainer/VBoxContainer" method="onMainMenuClicked"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/NewGameBtn" to="MarginContainer/HBoxContainer/VBoxContainer" method="onNewGameClicked"]

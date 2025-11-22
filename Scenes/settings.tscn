@@ -1,0 +1,173 @@
+[gd_scene load_steps=6 format=3 uid="uid://nen5vlumsnh6"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.cs" id="1_6lcme"]
+[ext_resource type="Texture2D" uid="uid://d1adwe08egnlh" path="res://Textures/backgrounds/forrest_1.jpeg" id="2_bp720"]
+[ext_resource type="Texture2D" uid="uid://cjtnvm7ra72hv" path="res://Textures/FieldTextures/dark_oak_planks.png" id="3_bttc6"]
+[ext_resource type="FontFile" uid="uid://b5pbgtwmf6htq" path="res://Minecraft.ttf" id="3_w1uew"]
+[ext_resource type="PackedScene" uid="uid://dmlkvvxwrg22r" path="res://Scenes/VolumeSlider.tscn" id="5_iihij"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6lcme")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bp720")
+
+[node name="ToMainButtonTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0333333
+anchor_top = 0.866667
+anchor_right = 0.20573
+anchor_bottom = 0.948149
+offset_top = 1.33514e-05
+offset_bottom = -3.09944e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bttc6")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ToMainButton" type="Button" parent="ToMainButtonTextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.00167847
+offset_bottom = 15.9994
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 60
+text = "< To Main"
+flat = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.0148148
+anchor_right = 0.5
+offset_left = -312.0
+offset_top = 64.0
+offset_right = 313.0
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.815686, 0.486275, 0.388235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 90
+text = "SKAAK"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.00555558
+anchor_right = 0.5
+anchor_bottom = -0.00555558
+offset_left = -312.0
+offset_top = 152.0
+offset_right = 313.0
+offset_bottom = 352.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.815686, 0.486275, 0.388235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 150
+text = "Settings
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.5
+offset_top = -192.5
+offset_right = 300.5
+offset_bottom = 436.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="VolumeVbox" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/VolumeVbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 60
+text = "Master Volume
+"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/VolumeVbox" instance=ExtResource("5_iihij")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="DifficultyVbox" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="DiifcultyLabel" type="Label" parent="VBoxContainer/DifficultyVbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 60
+text = "Difficulty"
+horizontal_alignment = 1
+
+[node name="Button_novice" type="Button" parent="VBoxContainer/DifficultyVbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 30
+text = "easy"
+
+[node name="Button_amateur" type="Button" parent="VBoxContainer/DifficultyVbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 30
+text = "medium"
+
+[node name="Button_master" type="Button" parent="VBoxContainer/DifficultyVbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_w1uew")
+theme_override_font_sizes/font_size = 30
+text = "hard"
+
+[connection signal="pressed" from="ToMainButtonTextureRect/ToMainButton" to="." method="_on_to_main_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/DifficultyVbox/Button_novice" to="." method="_on_button_novice_pressed"]
+[connection signal="pressed" from="VBoxContainer/DifficultyVbox/Button_amateur" to="." method="_on_button_amateur_pressed"]
+[connection signal="pressed" from="VBoxContainer/DifficultyVbox/Button_master" to="." method="_on_button_master_pressed"]

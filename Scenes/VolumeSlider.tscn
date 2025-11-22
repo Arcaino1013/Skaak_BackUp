@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmlkvvxwrg22r"]
+
+[ext_resource type="Script" path="res://Scripts/VolumeSlider.cs" id="1_piiwe"]
+[ext_resource type="Texture2D" uid="uid://4i2j3t8v83gf" path="res://Sprites/Pieces2D/whiteKing.png" id="1_s85q7"]
+
+[node name="VolumeSlider" type="HSlider"]
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 0.059
+offset_right = -2.28882e-05
+offset_bottom = 0.279996
+theme_override_constants/center_grabber = 10
+theme_override_icons/grabber = ExtResource("1_s85q7")
+theme_override_icons/grabber_highlight = ExtResource("1_s85q7")
+theme_override_icons/tick = ExtResource("1_s85q7")
+max_value = 1.0
+step = 0.001
+value = 0.75
+script = ExtResource("1_piiwe")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

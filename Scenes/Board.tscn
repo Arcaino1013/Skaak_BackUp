@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsnjpqcmtbgnf"]
+
+[ext_resource type="Script" path="res://Scripts/Board.cs" id="1_v58ng"]
+[ext_resource type="Script" path="res://Scripts/Bitboard.cs" id="2_w0o2g"]
+[ext_resource type="Script" path="res://Scripts/DataHandler.cs" id="3_jprdk"]
+[ext_resource type="Script" path="res://Scripts/GeneratePath.cs" id="4_7tru1"]
+[ext_resource type="Script" path="res://Scripts/Chessbot.cs" id="5_1v2he"]
+[ext_resource type="Texture2D" uid="uid://cof24630l7dh0" path="res://Textures/FieldTextures/blue_stained_glass.png" id="6_beotj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_js7h4"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Board" type="Control"]
+layout_mode = 3
+anchor_right = 0.565
+anchor_bottom = 1.0
+offset_right = -0.800049
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v58ng")
+
+[node name="Bitboard" type="Node" parent="."]
+script = ExtResource("2_w0o2g")
+
+[node name="DataHandler" type="Node" parent="."]
+script = ExtResource("3_jprdk")
+
+[node name="GeneratePath" type="Node" parent="."]
+script = ExtResource("4_7tru1")
+
+[node name="Chessbot" type="Node" parent="."]
+script = ExtResource("5_1v2he")
+
+[node name="ChessBoard" type="Panel" parent="."]
+self_modulate = Color(0.305882, 0.345098, 0.615686, 0.407843)
+layout_mode = 0
+offset_left = -2.0
+offset_right = 909.0
+offset_bottom = 911.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_js7h4")
+
+[node name="BoardMargin" type="MarginContainer" parent="ChessBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BoardGrid" type="GridContainer" parent="ChessBoard/BoardMargin"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="ChessBoard1" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 912.0
+offset_bottom = 912.0
+texture = ExtResource("6_beotj")
+expand_mode = 1
+
+[node name="BoardMargin" type="MarginContainer" parent="ChessBoard1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BoardGrid" type="GridContainer" parent="ChessBoard1/BoardMargin"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6

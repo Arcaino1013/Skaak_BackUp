@@ -1,0 +1,190 @@
+[gd_scene load_steps=13 format=3 uid="uid://dl0l7nj8y5oji"]
+
+[ext_resource type="Script" path="res://Scripts/ShopCard.cs" id="1_jl4aa"]
+[ext_resource type="Texture2D" uid="uid://dnb0vojh63ds1" path="res://Textures/FieldTextures/gray_wool.png" id="2_1niux"]
+[ext_resource type="Texture2D" uid="uid://csaqlmm5vfof4" path="res://Textures/SkaakBoardShaderBasic/CheckerAlbedo.png" id="2_5hn8b"]
+[ext_resource type="Shader" path="res://Shader/ShopCard.gdshader" id="3_j7bjf"]
+[ext_resource type="FontFile" uid="uid://dda5nre8nehrh" path="res://Minecraft.ttf" id="3_toc8g"]
+[ext_resource type="FontFile" uid="uid://w2464l21ue0j" path="res://Sprites/rainyhearts.ttf" id="3_yiacu"]
+[ext_resource type="PackedScene" uid="uid://c87bwup2y7e26" path="res://Scenes/animation_manager.tscn" id="4_xro0a"]
+[ext_resource type="Texture2D" uid="uid://cof24630l7dh0" path="res://Textures/FieldTextures/blue_stained_glass.png" id="6_xmxse"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astkr"]
+bg_color = Color(0.639216, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="Theme" id="Theme_se1mk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gr2tu"]
+shader = ExtResource("3_j7bjf")
+shader_parameter/hide = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywe4h"]
+texture = ExtResource("6_xmxse")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="master" type="Control"]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 3
+anchor_right = 0.142
+anchor_bottom = 0.349
+offset_right = -272.64
+offset_bottom = -376.92
+script = ExtResource("1_jl4aa")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 241.0
+offset_bottom = 291.0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_astkr")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.035
+anchor_top = -0.025
+anchor_right = 1.027
+anchor_bottom = 1.0
+offset_left = -0.04
+offset_top = -0.0249999
+offset_right = 0.0879822
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_se1mk")
+texture = ExtResource("2_1niux")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ItemImage" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gr2tu")
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_5hn8b")
+expand_mode = 1
+
+[node name="ItemAnimation" parent="MarginContainer/VBoxContainer/MarginContainer" instance=ExtResource("4_xro0a")]
+unique_name_in_owner = true
+position = Vector2(128, 128)
+scale = Vector2(2.4, 2.4)
+animation = &"Eisenschild"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="itemname" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_toc8g")
+theme_override_font_sizes/normal_font_size = 22
+text = "Item Name
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_toc8g")
+theme_override_font_sizes/font_size = 28
+text = "<PRICE>"
+
+[node name="price" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 175.0
+offset_top = 135.0
+offset_right = 241.0
+offset_bottom = 165.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_yiacu")
+theme_override_font_sizes/normal_font_size = 32
+text = "999€
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+tab_size = 24
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Description" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 1000
+layout_mode = 2
+offset_left = 284.0
+offset_top = 2.0
+offset_right = 736.0
+offset_bottom = 370.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_yiacu")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_ywe4h")
+text = "
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 24
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MarginContainer/ItemImage" to="." method="_on_item_image_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/MarginContainer/ItemImage" to="." method="_on_item_image_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

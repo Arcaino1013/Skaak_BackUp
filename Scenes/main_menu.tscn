@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0im3dvxx6aj"]
+
+[ext_resource type="Texture2D" uid="uid://gul2cq7y5ivb" path="res://Textures/backgrounds/skaak_main_menu.jpg" id="1_o4usk"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="2_x2h2u"]
+[ext_resource type="FontFile" uid="uid://b5pbgtwmf6htq" path="res://Minecraft.ttf" id="3_1qttk"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_x2h2u")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o4usk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.815686, 0.486275, 0.388235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1qttk")
+theme_override_font_sizes/font_size = 200
+text = "SKAAK"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="SeperatorBtn1" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartGameBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_1qttk")
+theme_override_font_sizes/font_size = 60
+text = "continue"
+
+[node name="NewGameBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_1qttk")
+theme_override_font_sizes/font_size = 60
+text = "new game"
+
+[node name="SettingsBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_1qttk")
+theme_override_font_sizes/font_size = 60
+text = "settings"
+
+[node name="ExitBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_1qttk")
+theme_override_font_sizes/font_size = 60
+text = "quit"
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/StartGameBtn" to="." method="OnStartGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/NewGameBtn" to="." method="OnNewGameButtonPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/NewGameBtn" to="." method="_on_shop_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/ExitBtn" to="." method="OnExitButtonPressed"]

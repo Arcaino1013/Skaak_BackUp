@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://baemwc6kjsc3k"]
+
+[ext_resource type="Shader" path="res://Shader/Blur.gdshader" id="1_16iux"]
+[ext_resource type="PackedScene" path="res://gui.tscn" id="1_k1t85"]
+[ext_resource type="Texture2D" uid="uid://ctlsefud2qigr" path="res://sprites/Pieces2D/blackBishop.png" id="3_7jvoh"]
+[ext_resource type="Shader" path="res://Shader/ColorOutline.gdshader" id="4_6rnb3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_31cav"]
+shader = ExtResource("1_16iux")
+shader_parameter/radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ac8x"]
+shader = ExtResource("4_6rnb3")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackBishop" type="Sprite2D" parent="."]
+position = Vector2(231, 420)
+texture = ExtResource("3_7jvoh")
+
+[node name="GUI" parent="." instance=ExtResource("1_k1t85")]
+layout_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+light_mask = 0
+material = SubResource("ShaderMaterial_31cav")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackBishop2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3ac8x")
+position = Vector2(329, 403)
+texture = ExtResource("3_7jvoh")

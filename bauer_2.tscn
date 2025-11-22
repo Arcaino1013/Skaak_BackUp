@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://8k10uvyg0y0x"]
+
+[ext_resource type="Shader" path="res://SchachFiguren.gdshader" id="1_26736"]
+[ext_resource type="Texture2D" uid="uid://dllfgvgsyhnlh" path="res://Textures/EmissionFürFiguren/BauerEmission.png" id="2_t1vi8"]
+[ext_resource type="ArrayMesh" uid="uid://cg7oweirehb3y" path="res://3DModels/Figuren/Bauer.obj" id="3_tj50t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rqkv8"]
+render_priority = 0
+shader = ExtResource("1_26736")
+shader_parameter/isPlayer = true
+shader_parameter/rarity = 5
+shader_parameter/emission_intensity = 10
+shader_parameter/hasEmission = false
+shader_parameter/emission_texure = ExtResource("2_t1vi8")
+
+[node name="Bauer2" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76673, 0.775016, -0.779923)
+material_override = SubResource("ShaderMaterial_rqkv8")
+mesh = ExtResource("3_tj50t")

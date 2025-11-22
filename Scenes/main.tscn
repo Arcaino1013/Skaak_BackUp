@@ -1,0 +1,321 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8b1y6yqs2tm0"]
+
+[ext_resource type="Script" path="res://Scripts/Main.cs" id="1_rg85g"]
+[ext_resource type="Texture2D" uid="uid://hmeyvv33ht08" path="res://Textures/backgrounds/Boss1.png" id="2_cn3xa"]
+[ext_resource type="PackedScene" uid="uid://dsnjpqcmtbgnf" path="res://Scenes/Board.tscn" id="3_d3srn"]
+[ext_resource type="Texture2D" uid="uid://1t7ykgpdym2y" path="res://Sprites/MC3.webp" id="4_fgtiw"]
+[ext_resource type="FontFile" uid="uid://dda5nre8nehrh" path="res://Minecraft.ttf" id="5_o7ksd"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rg85g")
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cn3xa")
+
+[node name="Board" parent="." instance=ExtResource("3_d3srn")]
+custom_minimum_size = Vector2(0, 700)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.5
+offset_top = -455.5
+offset_right = 454.5
+offset_bottom = 455.5
+size_flags_vertical = 4
+
+[node name="ResignButtonTextureRect2" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.821598
+anchor_top = 0.840334
+anchor_right = 0.946598
+anchor_bottom = 0.92089
+offset_left = 6.53128
+offset_top = 60.4389
+offset_right = 6.53128
+offset_bottom = 60.4388
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fgtiw")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ResignButton" type="Button" parent="ResignButtonTextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 16.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = "Resign "
+flat = true
+
+[node name="ConfirmButtonTextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.771598
+anchor_top = 0.840334
+anchor_right = 0.946598
+anchor_bottom = 0.92089
+offset_left = 6.53125
+offset_top = 60.4389
+offset_right = 6.53126
+offset_bottom = 60.4388
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fgtiw")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmButton" type="Button" parent="ConfirmButtonTextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 16.0
+offset_bottom = 16.9996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = "Confirm "
+flat = true
+
+[node name="ToMainButtonTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0192708
+anchor_top = 0.896296
+anchor_right = 0.191667
+anchor_bottom = 0.977778
+offset_top = 1.33514e-05
+offset_bottom = -3.09944e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fgtiw")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ToMainButton" type="Button" parent="ToMainButtonTextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.000701904
+offset_bottom = 15.9995
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = "< To Main"
+flat = true
+
+[node name="InformationDisplay" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0046875
+anchor_right = -0.0046875
+offset_left = 1640.0
+offset_top = 8.0
+offset_right = 1920.0
+offset_bottom = 288.0
+texture = ExtResource("4_fgtiw")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="InformationLabel" type="Label" parent="InformationDisplay"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0285714
+anchor_top = 0.0285714
+anchor_right = 0.971429
+anchor_bottom = 0.971429
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 40
+text = "Choose your  positioning"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelDisplay" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 77.0
+texture = ExtResource("4_fgtiw")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="LevelLabel" type="Label" parent="LevelDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 206.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = "Setup"
+metadata/_edit_use_anchors_ = true
+
+[node name="InfoBar" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 8.0
+offset_right = 1384.0
+offset_bottom = 77.0
+texture = ExtResource("4_fgtiw")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="InfoBarBoxContainer" type="HBoxContainer" parent="InfoBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.04348
+offset_left = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MovesBoxContainer" type="HBoxContainer" parent="InfoBar/InfoBarBoxContainer"]
+layout_mode = 2
+
+[node name="MoveCount" type="Label" parent="InfoBar/InfoBarBoxContainer/MovesBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = "00
+"
+
+[node name="MovesLabel" type="Label" parent="InfoBar/InfoBarBoxContainer/MovesBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = " Moves"
+
+[node name="VSeparator1" type="VSeparator" parent="InfoBar/InfoBarBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="TimeBoxContainer" type="HBoxContainer" parent="InfoBar/InfoBarBoxContainer"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="InfoBar/InfoBarBoxContainer/TimeBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = "--:--"
+
+[node name="VSeparator2" type="VSeparator" parent="InfoBar/InfoBarBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="GoldBoxContainer" type="HBoxContainer" parent="InfoBar/InfoBarBoxContainer"]
+layout_mode = 2
+
+[node name="GoldCount" type="Label" parent="InfoBar/InfoBarBoxContainer/GoldBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = "00"
+
+[node name="GoldLabel" type="Label" parent="InfoBar/InfoBarBoxContainer/GoldBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_o7ksd")
+theme_override_font_sizes/font_size = 60
+text = " Gold
+"
+
+[node name="DevButtons" type="HBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_top = -80.0
+offset_right = 386.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TestButton" type="Button" parent="DevButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Test"
+
+[node name="StartGameBtn" type="Button" parent="DevButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Start Game"
+
+[node name="ClearBoard" type="Button" parent="DevButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Clear Board"
+
+[connection signal="pressed" from="ResignButtonTextureRect2/ResignButton" to="." method="_on_resign_button_pressed"]
+[connection signal="pressed" from="ResignButtonTextureRect2/ResignButton" to="Board" method="_on_resign_button_pressed"]
+[connection signal="pressed" from="ConfirmButtonTextureRect/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="ConfirmButtonTextureRect/ConfirmButton" to="Board" method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="ToMainButtonTextureRect/ToMainButton" to="." method="_on_to_main_button_pressed"]
+[connection signal="pressed" from="DevButtons/TestButton" to="Board" method="_on_test_button_pressed"]
+[connection signal="pressed" from="DevButtons/StartGameBtn" to="Board" method="_on_start_game_btn_pressed"]
+[connection signal="pressed" from="DevButtons/ClearBoard" to="Board" method="_on_clear_board_pressed"]
